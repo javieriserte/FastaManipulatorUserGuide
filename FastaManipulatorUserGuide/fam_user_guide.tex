@@ -1,0 +1,1170 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------
+%Encoded with ISO-8859-1
+\documentclass[a4paper, twoside,10pt]{article} 
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command \ documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+
+% Lista de Paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pifont}             % Maneja Fuentes 
+% \usepackage{PTSans}             % Maneja Fuentes Sans Serif
+%\usepackage{skak}               % simbolos de ajedrez
+\usepackage[T1]{fontenc}        % Texto de alta calidad en pdfs
+\usepackage{ae,aecompl}         % Texto de alta calidad en pdfs
+\usepackage{pslatex}            % Texto de alta calidad en pdfs
+\usepackage{textcomp}           % Cosas de Texto
+\usepackage{multicol}           % Para manejar multiples columnas
+\usepackage[ansinew]{inputenc}  % Para poner acentos
+\usepackage[english]{babel}     % Para separar palabras al fin de los renglones.
+\usepackage{amsmath}            % Para hacer matemática
+\usepackage{amsfonts}           % Para hacer matemática
+\usepackage{amssymb}            % Para hacer matemática
+\usepackage{enumerate}          % Para Manehar Enumeraciones
+\usepackage{vwcol}							% para manejar multiples columas
+\usepackage{graphicx}	     				% Para manejar los gráficos
+\usepackage{fancyhdr}						% Para manejar encabezados y pie de páginas
+\usepackage{lastpage}						% Crea una referencia a la última página. Util para numerar páginas de la forma "página x de y"
+%\usepackage[final]{ps4pdf} 		        % para incluir archivos eps dentro del
+% documento pdf
+\usepackage{tocloft}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage{boolexpr}
+\usepackage{natbib}
+\usepackage{subfig}       % Crea subfiguras dentro de una figura
+
+% Configuración de página
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 16cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\textheight 23.7cm							% Declaraciones para cambiar el tamaño del área de texto para usar
+\oddsidemargin -0cm						% Declaraciones para cambiar el tamaño del área de texto para usar
+\evensidemargin -0cm					% Declaraciones para cambiar el tamaño del área de texto para usar
+\topmargin -0.5cm								% Declaraciones para cambiar el tamaño del área de texto para usar
+\headheight 0cm									% Declaraciones para cambiar el tamaño del área de texto para usar
+\headsep 10pt										% Declaraciones para cambiar el tamaño del área de texto para usar
+\marginparwidth 0cm
+
+% Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{jplainnat}       % estilo de la bibliografia
+	
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\s}{\the\textwidth}	
+\newcommand{\materiaName}{Fasta Alignment Manipulator}				                            % Guardo el
+% nombre de la asignatura.
+\newcommand{\seminarioName}{User Guide}            % Guardo el nombre de la
+% guía de ejercicios.
+\newcommand{\fecha}{\today}                                    % Guardo la fecha.
+\newcommand{\titulo}{																											% Para hacer el Título como me gusta
+	\begin{center}																												  % Para hacer el Título como me gusta
+	\vspace*{-22pt}\large\textbf{\materiaName}\\										        % Para hacer el Título como me gusta				
+	\vspace{2pt}\normalsize{\seminarioName}\\																% Para hacer el Título como me gusta
+% 	\vspace{2pt}\small{\textbf{U}niversidad \textbf{N}acional \textbf{A}rturo \textbf{J}auretche}\\																									% Para hacer el Título como me gusta
+	\vspace{-6pt}\rule{\textwidth}{0.4pt}
+	\end{center}	
+}
+
+\newcommand{\soft}[1]{ % a style for software and database names
+	\small
+	\uppercase{\textsc{\textbf{#1}}}
+	\normalsize
+}       
+
+\newcommand{\foreign}[1]{ % a style for words in a foreign language
+	\textit{#1}
+}
+\newcommand{\percent}{
+	\%
+}
+
+\newcommand{\species}[1]{ % a style for species
+	\textit{\textbf{#1}}
+} 
+       
+% Encabezado y Pie de Página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headheight=14pt																													% Creo el encabezado y pie página que quiero.
+\renewcommand{\headrulewidth}{0.4pt}				
+
+															% Creo el encabezado y pie página que quiero.
+\renewcommand{\footrulewidth}{0.4pt}																			% Creo el encabezado y pie página que quiero.
+\pagestyle{fancy}%																												% Creo el encabezado y pie página que quiero.
+\fancyfoot{}																															% Creo el encabezado y pie página que quiero.
+\lfoot{\footnotesize{Page \thepage\ de \pageref{LastPage}}}							% Creo el
+% encabezado y pie página que quiero.
+\lhead{\footnotesize{\materiaName}}																				% Creo el encabezado y pie página que quiero.
+\rhead{\footnotesize{\fecha\  - \seminarioName}}													% Creo el encabezado y pie página que quiero.
+
+% Fuentes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\familydefault}{\sfdefault}                                 % Cambia todas las fuentes a sans Serif
+
+% Enumeraciones
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{\theenumi}}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii}
+
+% Mostrar Fecha
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mostrarfecha}[1]{
+\large{}
+\begin{itemize}
+  \item #1
+\end{itemize}
+\normalsize{}
+}
+
+\setlength{\cftsubsecnumwidth}{3em}
+\setlength{\cftsubsubsecnumwidth}{4.5em}
+%\setlength{\parskip}{10pt plus 5pt minus 3pt}
+
+\tolerance=1000
+\emergencystretch=\maxdimen
+% \emergencystretch=100
+%\hyphenpenalty=10000
+\hbadness=10000
+
+%\renewcommand{\@pnumwidth}{12pt}
+% Documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\titulo
+
+\tableofcontents
+
+\section{Summary}
+FastaManipulator is a program that allows operate in very different ways in a
+multiple sequence fasta files using the command line. Requires Java-7 JRE to run
+properly. Some operations expect that the input sequences being all the same
+length. In other words, to be a multiple sequence alignment (MSA).
+
+In this guide, the word 'row' is used to represent a single sequence in data and
+the word 'column' is used to represent a position in one or more sequences.
+
+\section{Using FastaManipulator}
+FastaManipulator runs in a console. The executable file is a java '.jar' file.
+Can be used as:
+\begin{verbatim}
+>java -jar fam.jar <options>
+\end{verbatim} 
+or, more simply as: 
+\begin{verbatim}
+>fam.jar <options>
+\end{verbatim} 
+if your system has correctly associated \begin{tt}.jar\end{tt} files with 
+\begin{tt}java\end{tt} executable. On windows system, \begin{tt}.jar\end{tt}  
+files are usually associated with \begin{tt}javaw\end{tt} executable and 
+don't work propertly in this way.
+
+The typical execution of the progran is like:
+
+\begin{verbatim}
+>fam.jar -infile aln-input.fas <option> -outfile output.file
+\end{verbatim}
+
+There are available many different options in FastaManipulator. They are 
+presented in different groups in according with their behavior in the next 
+section.
+\section{Options}
+\subsection{System Options}
+\subsubsection{-infile}
+Is used by almost every utility in FastaManipulator. Is the path to a fasta 
+file. This option can be ignored, then the data is read from the \begin{tt}
+standard input\end{tt}. 
+
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile input-aln -count -outfile out.txt
+>cat input-aln | fam.jar -count -outfile out.txt
+\end{verbatim}
+
+\subsubsection{-outfile}
+Is used by almost every utility in FastaManipulator. Is the path to a file where 
+to export the output, despite the format or content of the output. This option 
+can be ignored, then the output is written to the \begin{tt}
+standard output\end{tt}. 
+
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile input-aln -count -outfile out.txt
+>fam.jar -infile input-aln -count 
+>fam.jar -infile input-aln -count | head
+>fam.jar -infile input-aln -count > out.txt
+\end{verbatim}
+
+\subsubsection{-version}
+Show the version number of the program an exits. Do not require \begin{tt}
+-infile\end{tt} option. 
+
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -ver
+\end{verbatim}
+
+\subsection{Information}
+Read the sequences and gives some information about them.
+
+\subsubsection{-count}
+Count the number of rows in the data.
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile aln.fas -count
+\end{verbatim}
+
+\subsection{Help options}
+\subsubsection{-help}
+Prints a brief help of the program.
+\subsubsection{-genCodeHelp}
+Prints a brief help about the format of the genetic code files. See more 
+about genetic code files on section \ref{sec:gen_code}. 
+
+\subsection{Information}
+Read the sequences and gives some information about them.
+
+\subsubsection{-def}
+Shows the descriptions (or definitions) of each sequence with it order number.
+The order number starts with 1, not 0.  
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile aln001.fas -def
+ 1	seq1
+ 2	seq2
+ 3	seq3
+ 4	seq4
+ 5	seq5
+\end{verbatim}
+
+\subsubsection{-length}
+Assumes that all sequences has the same lengths and shows it. If the assumption
+is false, the '0' is shown.   
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile aln001.fas -length
+ 0
+>fam.jar -infile aln002.fas -length
+ 48
+\end{verbatim}
+
+\subsubsection{-lengths}
+Shows the length of each row. 
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile aln001.fas -length
+ 59
+ 49
+ 55
+ 58
+ 57
+\end{verbatim}
+
+\subsubsection{-lengths}
+Shows the length of each row. 
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile aln001.fas -length
+ 59
+ 49
+ 55
+ 58
+ 57
+\end{verbatim}
+
+\subsection{Biological options}
+In this category there are a few options about biological manipulations of 
+sequences.
+\subsubsection{-comp}
+Returns a new alignment where each row is the reverse complementary sequence of
+the original. All sequences are assumed to be DNA sequences. Accepts degenerated
+IUPAC codes for DNA.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln003.fas
+ >seq1
+ ACTG-WSRYMK-BVDH-N
+ >seq2
+ AAA-CCC-TTT-GGG
+>fam.jar -infile aln003.fas -comp
+ >seq1
+ N-DHBV-MKRYSW-CAGT
+ >seq2
+ CCC-AAA-GGG-TTT
+\end{verbatim}
+
+\subsubsection{-randomRT}
+Assumes that rows are amino acid sequences and back-translate them into 
+DNA sequence. To do that, for every amino acid choses one of the possible 
+codons that codify for it. 
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln004.fas
+ >seq1
+ MWL
+ >seq2
+ MWL
+ >seq3
+ MWL
+>fam.jar -infile aln004.fas -randomRT
+ >seq1
+ ATGTGGCTG
+ >seq2
+ ATGTGGCTT
+ >seq3
+ ATGTGGCTA
+\end{verbatim}
+
+\subsubsection{-translate}
+Assumes that rows are DNA sequences and translate them into 
+protein sequences. Uses the standard genetic code. If row length is not 
+multiple of three, then an empty sequence is returned for that row.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -translate
+ >Seq1
+ MK*L
+ >Seq2
+ 
+ >Seq3
+ 
+\end{verbatim}
+
+\subsubsection{-translateWith}
+Assumes that rows are DNA sequences and translate them into 
+protein sequences. Uses a given genetic code. If row length is not 
+multiple of three, then an empty sequence is returned for that row.
+See more about genetic code file format on section \ref{sec:gen_code}.
+\paragraph{Example:}
+\begin{verbatim}
+>fam.jar -infile aln005.fas -translateWith myGeneticCode
+\end{verbatim}
+
+ 
+\subsection{Extraction options}
+Select some rows from a given alignment.
+
+\subsubsection{-extract}
+Gets one or more sequence by its order number. If more than one number is passed
+they should be separated by a comma.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -extract 1,3
+ >Seq1
+ ATGAAATAGCTG
+ >Seq3
+ ATGAAATAGCTGAA
+\end{verbatim}
+
+\subsubsection{-extract\_titles}
+Gets one or more sequence by its description. If more than one descriptions is 
+passed they should be separated by a comma. Do nou use spaces between commas and
+descriptions.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -extract_titles Seq1,Seq3
+ >Seq1
+ ATGAAATAGCTG
+ >Seq3
+ ATGAAATAGCTGAA
+\end{verbatim}
+
+\subsubsection{-pick}
+Select from all sequences some randomly. The number of sequences to retrieve 
+must be passed. No sequence is repeated in the output data, therefore the
+new data will have at most the same number of rows that the input data.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -pick 2
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq1
+ ATGAAATAGCTG
+>fam.jar -infile aln005.fas -pick 4
+ >Seq3
+ ATGAAATAGCTGAA
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+\end{verbatim}
+
+\subsection{Filtering options}
+Scan all rows, evaluates them with a given contidition and returns only those
+that fulfill the condition. In all filtering options a new \begin{tt}inverseFilter
+\end{tt} options can be use in order to negate the evaluation condition.
+
+\subsubsection{-contains}
+Filter rows that contains a given string in their sequence.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -contains CTGA
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+\end{verbatim}
+
+\subsubsection{-fStartWith}
+Filters the rows whose sequence starts with a given string.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln006.fas
+ >Seq1
+ TGAT
+ >Seq2
+ ATGT
+ >Seq3
+ ATTA
+>fam.jar -infile aln006.fas -contains AT
+ >Seq2
+ ATGT
+ >Seq3
+ ATTA
+\end{verbatim}
+
+\subsubsection{-fSmTh}
+Filters the rows whose sequence is smaller to a given number.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln007.fas
+ >Seq1
+ TGA
+ >Seq2
+ ATGT
+ >Seq3
+ ATTAA
+>fam.jar -infile  aln007.fas -fsmth 4 
+ >Seq1
+ TGA
+>fam.jar -infile  aln007.fas -fsmth 4 -inversefilter
+ >Seq2
+ ATGT
+ >Seq3
+ ATTAA
+\end{verbatim}
+
+\subsubsection{-fGrTh}
+Filters the rows whose sequence is smaller to a given number.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln007.fas
+ >Seq1
+ TGA
+ >Seq2
+ ATGT
+ >Seq3
+ ATTAA
+>fam.jar -infile  aln007.fas -fGrth 4 
+ >Seq3
+ ATTAA
+>fam.jar -infile  aln007.fas -fGrth 4 -inversefilter
+ >Seq1
+ TGA
+ >Seq2
+ ATGT
+\end{verbatim}
+\subsubsection{-title}
+Gets sequences that contains a given string in the description. The search is
+case sensitive.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -title q1
+ >Seq1
+ ATGAAATAGCTG
+>fam.jar -infile aln005.fas -title Seq
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+\end{verbatim}
+
+\subsubsection{-titles}
+Gets sequences that contains a one of the given strings in the description. The
+search is case sensitive. The strings passed must be separated by a comma.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln005.fas
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+ >Seq3
+ ATGAAATAGCTGAA
+>fam.jar -infile aln005.fas -titles q1,q2
+ >Seq1
+ ATGAAATAGCTG
+ >Seq2
+ ATGAAATAGCTGA
+\end{verbatim}
+
+\subsection{Gap options}
+In this category there many options that deal with gaps in sequences.
+\subsubsection{-countgapsin}
+Count the number of gaps in one row. The number of the row must be passed.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln008.fas
+ >Seq1
+ TGA--
+ >Seq2
+ ATGT-
+ >Seq3
+ ATTAA
+>fam.jar -infile aln008.fas  -countgapsin 1
+ 2
+>fam.jar -infile aln008.fas  -countgapsin 2
+ 1
+\end{verbatim}
+
+\subsubsection{-degap}
+Eliminates gaps from sequences.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln008.fas
+ >Seq1
+ TGA--
+ >Seq2
+ ATGT-
+ >Seq3
+ ATTAA
+>fam.jar -infile aln008.fas  -countgapsin 1
+ >Seq1
+ TGA
+ >Seq2
+ ATGT
+ >Seq3
+ ATTAA
+\end{verbatim}
+
+\subsubsection{-flush}
+Removes all-gap columns from both ends. Assumes that the data is a MSA.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln009.fas
+ >Seq1
+ ---TGA---
+ >Seq2
+ --AATGT--
+ >Seq3
+ -GGATTAA-
+>fam.jar -infile aln009.fas  -flush
+ >Seq1
+ --TGA-
+ >Seq2
+ -AATGT
+ >Seq3
+ GGATTA
+\end{verbatim}
+
+\subsubsection{-crush}
+For every row in the MSA a \begin{tt}Starting\end{tt} and \begin{tt}
+Ending\end{tt} point is determinated. The \begin{tt}Starting\end{tt} point is
+the first position from the left that is not a gap. The \begin{tt}Ending\end{tt}
+point is the first position from the right that is not a gap.
+Gets the maximum \begin{tt}Starting\end{tt} point and the minimum  
+\begin{tt}Ending\end{tt} point of all rows. Removes all columns to the left of
+the maximum \begin{tt}Starting\end{tt} point and all columns to the right of
+manimum \begin{tt}Ending\end{tt} point.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln009.fas
+ >Seq1
+ ---TGA---
+ >Seq2
+ --AATGT--
+ >Seq3
+ -GGATTAA-
+>fam.jar -infile aln009.fas -crush
+ >Seq1
+ TGA
+ >Seq2
+ ATG
+ >Seq3
+ ATT
+\end{verbatim}
+
+\subsubsection{-gapfreq}
+Calculates the frequency of appearance of gaps in every column of a MSA.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln009.fas
+ >Seq1
+ ---TGA---
+ >Seq2
+ --AATGT--
+ >Seq3
+ -GGATTAA-
+>fam.jar -infile aln009.fas -crush
+ 1.0
+ 0.6666666666666666
+ 0.3333333333333333
+ 0.0
+ 0.0
+ 0.0
+ 0.3333333333333333
+ 0.6666666666666666
+ 1.0
+\end{verbatim}
+
+\subsubsection{-pad}
+Fills the right end of every row until all rows have the same length.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln007.fas
+ >Seq1
+ TGA
+ >Seq2
+ ATGT
+ >Seq3
+ ATTAA
+>fam.jar -infile aln007.fas -pad
+ >Seq1
+ TGA--
+ >Seq2
+ ATGT-
+ >Seq3
+ ATTAA
+\end{verbatim}
+
+\subsubsection{-remGapRows}
+Remove rows containing only gaps.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln007.fas
+ >Seq1
+ TGA---GTG
+ >Seq2
+ AA------A
+ >Seq3
+ ---------
+>fam.jar -infile aln010.fas -remGapRows 
+ >Seq1
+ TGA---GTG
+ >Seq2
+ AA------A
+\end{verbatim}
+
+
+\subsubsection{-stripGappedColFr}
+Remove columns whose gap frequency is greater than a given value.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln009.fas
+ >Seq1
+ ---TGA---
+ >Seq2
+ --AATGT--
+ >Seq3
+ -GGATTAA-
+>fam.jar -infile aln009.fas -stripGappedColFr 0.5
+ >Seq1
+ -TGA-
+ >Seq2
+ AATGT
+ >Seq3
+ GATTA
+\end{verbatim}
+
+\subsubsection{-stripGappedColumns}
+Remove columns that contains at leats one gap.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln009.fas
+ >Seq1
+ ---TGA---
+ >Seq2
+ --AATGT--
+ >Seq3
+ -GGATTAA-
+>fam.jar -infile aln009.fas -stripGappedColumns 
+ >Seq1
+ TGA
+ >Seq2
+ ATG
+ >Seq3
+ ATT
+\end{verbatim}
+
+\subsection{Sequence identity options}
+\subsubsection{-idValues}
+Returns a list of identity values for every pair of rows in an MSA. The return
+data hasn't any sequence identification. The order of output is this:
+first row vs. second row, first row vs. third row, \ldots , first row vs. last
+row, second row vs. third row,\ldots, second row vs. last row, \ldots, 
+penultimate row vs. last row. Therefore, for $n$ rows, the output has 
+$\frac{n\times(n-1)}{2}$ identity values.   
+
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln011.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAAGG
+ >Seq3
+ AAAAAATTTT
+ >Seq4
+ AAAACCCCCC
+>fam.jar -infile aln011.fas -idValues 
+ 0.8
+ 0.6
+ 0.4
+ 0.6
+ 0.4
+ 0.4
+\end{verbatim}
+
+\subsubsection{-idMatrix}
+Returns a $n\times n$ matrix of identity values for every pair of rows in an 
+MSA, where $n$ is the number of rows. The matrix values are separated by a ';'
+character. The order of the elements in the matrix is the same of the rows in 
+the MSA.  
+
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln011.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAAGG
+ >Seq3
+ AAAAAATTTT
+ >Seq4
+ AAAACCCCCC
+>fam.jar -infile aln011.fas -idMatrix 
+ 1.0;0.8;0.6;0.4
+ 0.8;1.0;0.6;0.4
+ 0.6;0.6;1.0;0.4
+ 0.4;0.4;0.4;1.0
+\end{verbatim}
+
+\subsubsection{-mds}
+Performs a multidimensional scaling of the identity values of every pair of rows
+in a MSA. The number the dimensions to retrieve must be passed. The calculus is
+made using \begin{tt}msdj\end{tt} package from "Algorithmics Group. 
+MDSJ: Java Library for Multidimensional Scaling (Version 0.2). Available at 
+http://www.inf.uni-konstanz.de/algo/software/mdsj/. University of Konstanz, 
+2009.". Eigenvectors are printed to the output, Eigenvalues are printed to
+\begin{tt}Standard Error\end{tt}.
+
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln011.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAAGG
+ >Seq3
+ AAAAAATTTT
+ >Seq4
+ AAAACCCCCC
+>fam.jar -infile aln011.fas -mds 2 2> eigen.values
+ d0,d1
+ 0.4501512234916161,0.4118410533020179
+ 0.4501512236067844,0.4118402079859481
+ 0.49931134155816165,0.18985050136626067
+ 0.5877209678629007,-0.7903995047013597
+>cat eigen.values
+ eigenvalue[0]: 1.427777557382751
+ eigenvalue[1]: -0.7683683406757877
+\end{verbatim}
+
+\subsection{Modifier options}
+In this category there are many options that permits transform the data.
+
+\subsubsection{-append}
+Creates a new data set, from two input data sets. Each row in the new data set
+results from the concatenation of the corresponding rows in the two input data
+sets. Both input data set must have the same number of rows. 
+
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln012.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAGG
+>cat aln012.fas
+ >Seq1
+ TTTTTTTTTT
+ >Seq2
+ TTTTTTTCC
+>fam.jar -infile aln012.fas -append aln013.fas
+ >Seq1
+ AAAAAAAAAATTTTTTTTTT
+ >Seq2
+ AAAAAAAGGTTTTTTTCC
+\end{verbatim}
+
+\subsubsection{-appendMany}
+Is an extension of the \begin{tt}-append\end{tt} option to include more than
+two sequences. Do not uses the \begin{tt}-infile\end{tt} option. The input files
+must be passed as a list of comma separated paths. All input files must have the
+same length.
+
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln012.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAGG
+>cat aln013.fas
+ >Seq1
+ TTTTTTTTTT
+ >Seq2
+ TTTTTTTCC
+>fam.jar -appendMany aln013.fas,aln012.fas,aln013.fas
+ >Seq1
+ TTTTTTTTTTAAAAAAAAAATTTTTTTTTT
+ >Seq2
+ TTTTTTTCCAAAAAAAGGTTTTTTTCC
+\end{verbatim}
+
+\subsubsection{-changeDesc}
+Changes the description of each row. The new descriptions must be passed in a 
+file. Each text line in that file correspond to the new description of the row
+in the same order in the data.
+
+\paragraph{Example:}
+\begin{verbatim}
+>cat newDesc
+ newSeq1
+ newSeq2
+>cat aln012.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAGG
+>fam.jar -infile aln012.fas -changeDesc newDesc
+ >newSeq1
+ AAAAAAAAAA
+ >newSeq2
+ AAAAAAAGG
+\end{verbatim}
+
+\subsubsection{-concatenate}
+Join the rows of many alignments. Do not use the \begin{tt}-infile\end{tt} 
+option. 
+\paragraph{Example:}
+\begin{verbatim}
+\begin{verbatim}
+>cat aln012.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAGG
+>cat aln013.fas
+ >Seq1
+ TTTTTTTTTT
+ >Seq2
+ TTTTTTTCC
+>fam.jar -concatenate aln012.fas,aln013.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAGG
+ >Seq1
+ TTTTTTTTTT
+ >Seq2
+ TTTTTTTCC
+\end{verbatim}
+
+\subsubsection{-deInter}
+Deinterleaves the data. Long sequences are usually splitted in several lines in
+order to improve human reading. This options makes that the sequence data of 
+each row is in just one line.   
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln014.fas
+ >Seq1
+ TTTTT
+ TTTTT
+ >Seq2
+ TTTTT
+ TTCC
+>fam.jar -infile aln014.fas -deinter
+ >Seq1
+ TTTTTTTTTT
+ >Seq2
+ TTTTTTTCC
+\end{verbatim}
+
+
+\subsubsection{-keeppos}
+Creates a new MSA with some columns of an input alignment. The numbers of the 
+columns to retain are passed in a file. That file must contain a single number
+per line.  
+\paragraph{Example:}
+\begin{verbatim}
+>cat keep
+ 2
+ 4
+ 6
+>cat aln015.fas
+ >Seq1
+ TATCTGTTTT
+ >Seq2
+ TATCTGTTCC
+>fam.jar -infile aln015.fas -keeppos keep
+ >Seq1
+ ACG
+ >Seq2
+ ACG
+\end{verbatim}
+
+\subsubsection{-rempos}
+Creates a new MSA with some columns of an input alignment. A file containing a 
+single number per line must be passed. The numbers of the files are the columns
+to be skipped from the input alignment. 
+\paragraph{Example:}
+\begin{verbatim}
+>cat keep
+ 2
+ 4
+ 6
+>cat aln015.fas
+ >Seq1
+ TATCTGTTTT
+ >Seq2
+ TATCTGTTCC
+>fam.jar -infile aln015.fas -rempos keep
+ >Seq1
+ TTTTTTT
+ >Seq2
+ TTTTTCC
+\end{verbatim}
+
+\subsubsection{-remove}
+Removes one or many rows from a data set. The number of the rows to be removed 
+must be passed.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln011.fas
+ >Seq1
+ AAAAAAAAAA
+ >Seq2
+ AAAAAAAAGG
+ >Seq3
+ AAAAAATTTT
+ >Seq4
+ AAAACCCCCC
+>fam.jar -infile aln011.fas -remove 1,2 
+ >Seq3
+ AAAAAATTTT
+ >Seq4
+ AAAACCCCCC
+\end{verbatim}
+
+\subsubsection{-repUncommon}
+Replace strange characters in sequences.
+There are three sets of common characters:
+\begin{description}
+  \item[b] Bases = (A,C,T,G,-,a,c,t,g)
+  \item[d] Degenerated bases = (A,C,T,G,W,S,R,Y,M,K,V,B,H,D,N,-,a,c,t,g,w,s,r,y,m,k,v,b,h,d,n)
+  \item[a] Amino acids = (Q,W,E,R,T,Y,I,P,A,S,D,F,G,H,K,L,C,V,N,M,-,q,w,e,r,t,y,i,p,a,s,d,f,g,h,k,l,c,v,n,m)
+\end{description}
+One set must be selected. The set is selected with the letter b,d or a.
+Also, a character for replacement must be passed. The order of the arguments to
+be passed is the set first, then a comma, then the replacement character.
+ 
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln016.fas
+ >Seq1
+ TAZCTGXTT?
+>fam.jar -infile aln011.fas -repUncommon b,N 
+ >Seq1
+ TANCTGNTTN
+\end{verbatim}
+
+\subsubsection{-slice}
+Cuts a portion of an alignment and creates a new alignment. Two column numbers 
+must be given. Being the second greater or equal to the first. The region kept
+goes from the first column number given to the last column number. 
+ 
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln015.fas
+ >Seq1
+ TATCTGTTTT
+ >Seq2
+ TATCTGTTCC
+>fam.jar -infile aln015.fas -slice 2,9
+ >Seq1
+ ATCTGTTT
+ >Seq2
+ ATCTGTTC
+\end{verbatim}
+
+\subsection{Miscelaneous Options}
+\subsubsection{-mi}
+Calculates Mutual Information of every column pair of the alignment. 
+MI is defined as:
+$MI (X,Y) = H(X) + H(Y) - H(X,Y) $
+Where $H$ is the informative entropy. Assumes that the data set is a protein
+MSA.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln017.fas
+ >Seq1
+ MMMQ
+ >Seq2
+ MMGA
+ >Seq3
+ MMVN
+ >Seq4
+ MMTC
+>fam.jar -infile aln017.fas -mi
+ 0; 0,0000; 0,0000; 0,0000
+ 0,0000; 0; 0,0000; 0,0000
+ 0,0000; 0,0000; 0; 0,4628
+ 0,0000; 0,0000; 0,4628; 0
+\end{verbatim}
+
+\subsubsection{-recFromCon}
+Reconstruct a MSA from a dotted version using a reference sequence.
+The number of the reference sequence should be passed, if not, a reference
+sequence is guessed from the data.
+\paragraph{Example:}
+\begin{verbatim}
+>cat aln018.fas
+ >Seq1
+ ...A
+ >Seq2
+ ACTG
+ >Seq3
+ ...C
+ >Seq4
+ ..TC
+>fam.jar -infile aln018.fas -recFromCon 2
+ >Seq1
+ ACTA
+ >Seq2
+ ACTG
+ >Seq3
+ ACTC
+ >Seq4
+ ACTC
+>fam.jar -infile aln018.fas -recFromCon 4
+ >Seq1
+ ..TA
+ >Seq2
+ ACTG
+ >Seq3
+ ..TC
+ >Seq4
+ ..TC
+>fam.jar -infile aln018.fas -recFromCon
+ >Seq1
+ ACTA
+ >Seq2
+ ACTG
+ >Seq3
+ ACTC
+ >Seq4
+ ACTC
+\end{verbatim}
+
+\section{Genetic Code file format}
+\label{sec:gen_code}
+DNA sequences can be translated into protein sequences using a custom genetic 
+code. This custom code must be passed as a text file. The format of the file is 
+very simple. It contains 21 lines, each one corresponding to a amino acid, and
+a stop signal.
+Each line contains several strings separated by commas. The first one is a 
+one-letter upper case char for the given amino acid (or stop signal). The rest 
+are the codons that codify fot that amino acid, also in upper case. 
+
+\textbf{Example:}
+\begin{verbatim}
+A, GCT, GCC, GCA, GCG
+C, TGT, TGC
+D, GAT, GAC
+E, GAA, GAG
+F, TTT, TTC
+G, GGT, GGC, GGA, GGG
+H, CAT, CAC
+I, ATT, ATC, ATA
+K, AAA, AAG
+L, TTA, TTG, CTT, CTC, CTA, CTG
+M, ATG
+N, AAT, AAC
+P, CCT, CCC, CCA, CCG
+Q, CAA, CAG
+R, CGT, CGC, CGA, CGG, AGA, AGG
+S, TCT, TCC, TCA, TCG, AGT, AGC
+T, ACT, ACC, ACA, ACG
+V, GTT, GTC, GTA, GTG
+W, TGG
+Y, TAT, TAC
+*, TAA, TGA, TAG
+\end{verbatim}
+
+\end{document}

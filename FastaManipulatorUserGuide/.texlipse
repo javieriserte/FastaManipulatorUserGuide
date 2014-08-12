@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Tue Aug 12 13:37:52 ART 2014
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=fam_user_guide.tex
+outputFile=fam_user_guide.pdf
+langSpell=en
+markDer=true
+srcDir=
